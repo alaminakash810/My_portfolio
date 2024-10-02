@@ -1,33 +1,20 @@
-/*!
-  * Bootstrap v4.0.0-beta.2 (https://getbootstrap.com)
-  * Copyright 2011-2017 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-  */
+
 var bootstrap = (function (exports,$) {
 'use strict';
 
 $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): util.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
+
 
 var Util = function () {
-  /**
-   * ------------------------------------------------------------------------
-   * Private TransitionEnd Helpers
-   * ------------------------------------------------------------------------
-   */
+
   var transition = false;
   var MAX_UID = 1000000;
   var TransitionEndEvent = {
     WebkitTransition: 'webkitTransitionEnd',
     MozTransition: 'transitionend',
     OTransition: 'oTransitionEnd otransitionend',
-    transition: 'transitionend' // shoutout AngusCroll (https://goo.gl/pxwQGp)
+    transition: 'transitionend' 
 
   };
 
@@ -41,10 +28,10 @@ var Util = function () {
       delegateType: transition.end,
       handle: function handle(event) {
         if ($(event.target).is(this)) {
-          return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
+          return event.handleObj.handler.apply(this, arguments); 
         }
 
-        return undefined; // eslint-disable-line no-undefined
+        return undefined; 
       }
     };
   }
@@ -90,19 +77,15 @@ var Util = function () {
       $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
   }
-  /**
-   * --------------------------------------------------------------------------
-   * Public Util Api
-   * --------------------------------------------------------------------------
-   */
+
 
 
   var Util = {
     TRANSITION_END: 'bsTransitionEnd',
     getUID: function getUID(prefix) {
       do {
-        // eslint-disable-next-line no-bitwise
-        prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+        
+        prefix += ~~(Math.random() * MAX_UID); 
       } while (document.getElementById(prefix));
 
       return prefix;
@@ -177,18 +160,13 @@ function _inheritsLoose(subClass, superClass) {
 
 var inheritsLoose = _inheritsLoose;
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): alert.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
+
 
 var Alert = function () {
   /**
-   * ------------------------------------------------------------------------
+   * ---------
    * Constants
-   * ------------------------------------------------------------------------
+   * ----------
    */
   var NAME = 'alert';
   var VERSION = '4.0.0-beta.2';
@@ -210,9 +188,9 @@ var Alert = function () {
     FADE: 'fade',
     SHOW: 'show'
     /**
-     * ------------------------------------------------------------------------
+     * ---------------
      * Class Definition
-     * ------------------------------------------------------------------------
+     * ----------------
      */
 
   };
@@ -349,18 +327,12 @@ var Alert = function () {
   return Alert;
 }($);
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): button.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
+
  */
 
 var Button = function () {
   /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
+   * -------------------
    */
   var NAME = 'button';
   var VERSION = '4.0.0-beta.2';
@@ -383,11 +355,7 @@ var Button = function () {
   var Event = {
     CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
     FOCUS_BLUR_DATA_API: "focus" + EVENT_KEY + DATA_API_KEY + " " + ("blur" + EVENT_KEY + DATA_API_KEY)
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
+
 
   };
 
@@ -495,11 +463,7 @@ var Button = function () {
     var button = $(event.target).closest(Selector.BUTTON)[0];
     $(button).toggleClass(ClassName.FOCUS, /^focus(in)?$/.test(event.type));
   });
-  /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+ 
 
   $.fn[NAME] = Button._jQueryInterface;
   $.fn[NAME].Constructor = Button;
@@ -512,19 +476,10 @@ var Button = function () {
   return Button;
 }($);
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): carousel.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
+
 
 var Carousel = function () {
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+ 
   var NAME = 'carousel';
   var VERSION = '4.0.0-beta.2';
   var DATA_KEY = 'bs.carousel';
@@ -536,7 +491,7 @@ var Carousel = function () {
 
   var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
 
-  var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
+  var TOUCHEVENT_COMPAT_WAIT = 500; /
 
   var Default = {
     interval: 5000,
@@ -995,11 +950,7 @@ var Carousel = function () {
       Carousel._jQueryInterface.call($carousel, $carousel.data());
     });
   });
-  /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+  
 
   $.fn[NAME] = Carousel._jQueryInterface;
   $.fn[NAME].Constructor = Carousel;
@@ -1012,19 +963,10 @@ var Carousel = function () {
   return Carousel;
 }($);
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): collapse.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
+
 
 var Collapse = function () {
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+  
   var NAME = 'collapse';
   var VERSION = '4.0.0-beta.2';
   var DATA_KEY = 'bs.collapse';
@@ -1060,11 +1002,7 @@ var Collapse = function () {
   var Selector = {
     ACTIVES: '.show, .collapsing',
     DATA_TOGGLE: '[data-toggle="collapse"]'
-    /**
-     * ------------------------------------------------------------------------
-     * Class Definition
-     * ------------------------------------------------------------------------
-     */
+   
 
   };
 
@@ -1362,11 +1300,7 @@ var Collapse = function () {
       Collapse._jQueryInterface.call($target, config);
     });
   });
-  /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   */
+  
 
   $.fn[NAME] = Collapse._jQueryInterface;
   $.fn[NAME].Constructor = Collapse;
@@ -1383,26 +1317,7 @@ var Collapse = function () {
  * @fileOverview Kickass library to create and place poppers near their reference elements.
  * @version 1.12.5
  * @license
- * Copyright (c) 2016 Federico Zivolo and contributors
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+**/
 var nativeHints = ['native code', '[object MutationObserverConstructor]'];
 
 /**
@@ -1433,9 +1348,7 @@ function microtaskDebounce(fn) {
   var i = 0;
   var elem = document.createElement('span');
 
-  // MutationObserver provides a mechanism for scheduling microtasks, which
-  // are scheduled *before* the next task. This gives us a way to debounce
-  // a function but ensure it's called *before* the next paint.
+
   var observer = new MutationObserver(function () {
     fn();
     scheduled = false;
@@ -1465,16 +1378,9 @@ function taskDebounce(fn) {
   };
 }
 
-// It's common for MutationObserver polyfills to be seen in the wild, however
-// these rely on Mutation Events which only occur when an element is connected
-// to the DOM. The algorithm used in this module does not use a connected element,
-// and so we must ensure that a *native* MutationObserver is available.
+
 var supportsNativeMutationObserver = isBrowser && isNative(window.MutationObserver);
 
-/**
-* Create a debounced version of a method, that's asynchronously deferred
-* but called in the minimum time possible.
-*
 * @method
 * @memberof Popper.Utils
 * @argument {Function} fn
@@ -5493,12 +5399,7 @@ var Tooltip = function () {
   return Tooltip;
 }($, Popper);
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta.2): popover.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
+
 
 var Popover = function () {
   /**

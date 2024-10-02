@@ -60,8 +60,7 @@ gulp.task('minify-js', function() {
     }))
 });
 
-// Copy vendor files from /node_modules into /vendor
-// NOTE: requires `npm install` before running!
+
 gulp.task('copy', function() {
   gulp.src([
       'node_modules/bootstrap/dist/**/*',

@@ -33,7 +33,7 @@ h2 {
   font-family: 'Saira Extra Condensed', serif;
   font-size: 1.35rem; }
 
-.lower{
+#lowercase{
   text-transform: lowercase;
   font-weight: 500;
   font-family: 'Saira Extra Condensed', serif;
